@@ -1,0 +1,32 @@
+.dialogContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 20;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dialogCenter {
+    z-index: 21;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.dialogLeft {
+    z-index: 21;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.dialogRight {
+    z-index: 21;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
