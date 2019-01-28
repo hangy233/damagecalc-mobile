@@ -1,0 +1,30 @@
+[
+    {
+        "name": "generation-i",
+        "id": "RBY"
+    },
+    {
+        "name": "generation-ii",
+        "id": "GSC"
+    },
+    {
+        "name": "generation-iii",
+        "id": "ADV"
+    },
+    {
+        "name": "generation-iv",
+        "id": "DPP"
+    },
+    {
+        "name": "generation-v",
+        "id": "B/W"
+    },
+    {
+        "name": "generation-vi",
+        "id": "X/Y"
+    },
+    {
+        "name": "sun-moon",
+        "id": "S/M"
+    }
+]

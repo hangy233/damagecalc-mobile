@@ -4,9 +4,9 @@ import field from './field';
 import settings from './settings';
 
 const app = combineReducers({
-    pokemons,
-    field,
-    settings
+  pokemons,
+  field,
+  settings,
 });
 
 export default app;
