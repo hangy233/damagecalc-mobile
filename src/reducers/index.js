@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import pokemons from './pokemons';
 import field from './field';
 import settings from './settings';
@@ -6,7 +6,7 @@ import settings from './settings';
 const app = combineReducers({
   pokemons,
   field,
-  settings,
+  settings
 });
 
 export default app;

@@ -15,7 +15,7 @@ const langs = {
   9: 'en',
   // 10: 'cs',
   11: 'ja',
-  12: 'zh-Hans',
+  12: 'zh-Hans'
 };
 const categories = [
   'abilities',
@@ -24,11 +24,10 @@ const categories = [
   'natures',
   'stats',
   'types',
-  'pokemons',
+  'pokemons'
 ];
 let names = {};
 let prevKey = '1';
-
 
 const appendSyncAllLangFile = (data) => {
   Object.values(langs).forEach((lang) => {
@@ -56,7 +55,7 @@ const readCategory = (i = 0, callback) => {
   }
 
   const reader = readline.createInterface({
-    input: fs.createReadStream(`${category}.txt`),
+    input: fs.createReadStream(`${category}.txt`)
   });
 
   reader.on('line', (line) => {

@@ -1,4 +1,4 @@
-import { h, Component } from 'preact';
+import {h} from 'preact';
 import style from './style';
 
 const Dialog = ({position, children, onClickOut}) => {
@@ -18,7 +18,7 @@ const Dialog = ({position, children, onClickOut}) => {
   return (
     <div class={style.dialogContainer} onClick={onClickOut}>
       <div class={dialogClass} onClick={e => e.stopPropagation()}>
-          {children}
+        {children}
       </div>
     </div>
   );

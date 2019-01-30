@@ -1,9 +1,9 @@
-import { h } from 'preact';
-import { connect } from 'preact-redux'
+import {h} from 'preact';
+import {connect} from 'preact-redux';
 import style from './style';
 import Dialog from '../dialog';
-import { toggleSetting } from '../../action_creators';
-import { Settings } from '../../constants';
+import {toggleSetting} from '../../action_creators';
+import {Settings} from '../../constants';
 
 const Drawer = ({toggleDrawer, opened}) => {
   if (!opened) {
@@ -20,12 +20,12 @@ const Drawer = ({toggleDrawer, opened}) => {
   ];
 
   return (
-    <Dialog position="LEFT" onClickOut={toggleDrawer}>
+    <Dialog position='LEFT' onClickOut={toggleDrawer}>
       <nav class={style.drawer}>
         {
           links.map(link => (
             <div>
-              <a class={style.drawerAnchor} href={link.url} target="_blank">{link.description}</a>
+              <a class={style.drawerAnchor} href={link.url} target='_blank'>{link.description}</a>
             </div>
           ))
         }
@@ -39,6 +39,6 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   toggleDrawer: () => dispatch(toggleSetting(Settings.DRAWER))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Drawer);
