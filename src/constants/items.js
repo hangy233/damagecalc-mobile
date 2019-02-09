@@ -1,10 +1,6 @@
-import Item from '../classes/Item';
-import itemKeys from '../assets/json/itemKeys.json';
-import STATS from './stats';
-import TYPES from './types';
-import POKEMONS from './pokemons';
+import {ITEMS, POKEMONS, TYPES, STATS} from '../lang';
 
-const megaStonePokemonMap = {
+export const megaStonePokemonMap = {
   ABSOLITE: POKEMONS.ABSOL,
   ABOMASITE: POKEMONS.ABOMASNOW,
   AERODACTYLITE: POKEMONS.AERODACTYL,
@@ -53,7 +49,7 @@ const megaStonePokemonMap = {
   TYRANITARITE: POKEMONS.TYRANITAR,
   VENUSAURITE: POKEMONS.VENUSAUR
 };
-const itemBoostTypeMap = {
+export const itemBoostTypeMap = {
   DRACO_PLATE: TYPES.DRAGON,
   DRAGON_FANG: TYPES.DRAGON,
   DREAD_PLATE: TYPES.DARK,
@@ -96,7 +92,7 @@ const itemBoostTypeMap = {
   PINK_BOW: TYPES.NORMAL,
   POLKADOT_BOW: TYPES.NORMAL
 };
-const itemResistTypeMap = {
+export const itemResistTypeMap = {
   CHILAN_BERRY: TYPES.NORMAL,
   OCCA_BERRY: TYPES.FIRE,
   PASSHO_BERRY: TYPES.WATER,
@@ -183,7 +179,7 @@ const itemFlingPowerMap = {
   WISE_GLASSES: 10,
   ZOOM_LENS: 10
 };
-const itemNaturalGiftMap = {
+export const itemNaturalGiftMap = {
   APICOT_BERRY: {T: TYPES.GROUND, P: 100},
   BABIRI_BERRY: {T: TYPES.STEEL, P: 80},
   BELUE_BERRY: {T: TYPES.ELECTRIC, P: 100},
@@ -226,8 +222,8 @@ const itemNaturalGiftMap = {
   WATMEL_BERRY: {T: TYPES.FIRE, P: 100},
   YACHE_BERRY: {T: TYPES.ICE, P: 80}
 };
-const itemTechnoBlastMap = {BURN_DRIVE: TYPES.FIRE, CHILL_DRIVE: TYPES.ICE, DOUSE_DRIVE: TYPES.WATER, SHOCK_DRIVE: TYPES.ELECTRIC};
-const itemMultiAttackMap = {
+export const itemTechnoBlastMap = {BURN_DRIVE: TYPES.FIRE, CHILL_DRIVE: TYPES.ICE, DOUSE_DRIVE: TYPES.WATER, SHOCK_DRIVE: TYPES.ELECTRIC};
+export const itemMultiAttackMap = {
   FIGHTING_MEMORY: TYPES.FIGHTING,
   FLYING_MEMORY: TYPES.FLYING,
   POISON_MEMORY: TYPES.POISON,
@@ -246,8 +242,8 @@ const itemMultiAttackMap = {
   DARK_MEMORY: TYPES.DARK,
   FAIRY_MEMORY: TYPES.FAIRY
 };
-const itemBoostStatMap = {ELECTRIC_SEED: STATS.DF, GRASSY_SEED: STATS.DF, MISTY_SEED: STATS.SP, PSYCHIC_SEED: STATS.SP};
-const getFlingPower = (key) => {
+export const itemBoostStatMap = {ELECTRIC_SEED: STATS.DF, GRASSY_SEED: STATS.DF, MISTY_SEED: STATS.SP, PSYCHIC_SEED: STATS.SP};
+export const getFlingPower = (key) => {
   const postfix = key.split('_')[1];
 
   if (postfix === 'PLATE') {
@@ -261,36 +257,15 @@ const getFlingPower = (key) => {
   return itemFlingPowerMap[key] || 0;
 };
 
-const ITEMS = {};
-const items = new Array(294);
-items.forEach((item, i) => {
-  const key = itemKeys[i];
-
-  items[i] = new Item({
-    id: i,
-    key,
-    mega: megaStonePokemonMap[key],
-    boostType: itemBoostTypeMap[key],
-    resistType: itemResistTypeMap[key],
-    flingPower: getFlingPower(key),
-    naturalGiftPower: itemNaturalGiftMap[key] && itemNaturalGiftMap[key].p,
-    naturalGiftType: itemNaturalGiftMap[key] && itemNaturalGiftMap[key].t,
-    technoBlast: itemTechnoBlastMap[key],
-    multiAttack: itemMultiAttackMap[key],
-    boostedStat: itemBoostStatMap[key]
-  });
-
-  ITEMS[key] = items[i];
-});
-
-const ITEMS_GSC = items.slice(0, 30);
-const ITEMS_ADV = items.slice(1, 80);
+const ITEMS_ARRAY = Object.keys(ITEMS);
+const ITEMS_GSC = ITEMS_ARRAY.slice(0, 30);
+const ITEMS_ADV = ITEMS_ARRAY.slice(1, 80);
 ITEMS_ADV.splice(8, 1);
 ITEMS_ADV.splice(19, 1);
 ITEMS_ADV.splice(21, 1);
-const ITEMS_DPP = ITEMS_ADV.concat(items.slice(80, 149));
-const ITEMS_BW = ITEMS_DPP.concat(items.slice(149, 176));
-const ITEMS_XY = ITEMS_BW.concat(items.slice(176, 231));
-const ITEMS_SM = ITEMS_XY.concat(items.slice(231));
+const ITEMS_DPP = ITEMS_ADV.concat(ITEMS_ARRAY.slice(80, 149));
+const ITEMS_BW = ITEMS_DPP.concat(ITEMS_ARRAY.slice(149, 176));
+const ITEMS_XY = ITEMS_BW.concat(ITEMS_ARRAY.slice(176, 231));
+const ITEMS_SM = ITEMS_XY.concat(ITEMS_ARRAY.slice(231));
 
-export {ITEMS_GSC, ITEMS_ADV, ITEMS_DPP, ITEMS_BW, ITEMS_XY, ITEMS_SM, ITEMS};
+export {ITEMS_GSC, ITEMS_ADV, ITEMS_DPP, ITEMS_BW, ITEMS_XY, ITEMS_SM};
